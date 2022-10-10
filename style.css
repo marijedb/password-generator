@@ -75,3 +75,14 @@ hr {
     height: 40px;
     width: 211px;
 }
+
+
+@media screen and (max-width: 600px) {
+    .sub-container {
+        margin-left: 30px;
+    }
+
+    .output-button { 
+        width: 150px;
+    }
+  }

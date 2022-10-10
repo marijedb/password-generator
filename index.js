@@ -3,12 +3,16 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 let outputOne = document.querySelector(".output-one");
 let outputTwo = document.querySelector(".output-two");
 let generateButton = document.querySelector(".btn-generate");
+let copiedOne = document.getElementById("copied-one");
+let copiedTwo = document.getElementById("copied-two");
 let passwordsArray = [];
 let passwordLength = 15;
 let clickedOutputOne = false;
 let clickedOutputTwo = false;
 
+
 function createPassword(){
+    checkHiddenStatus();
     passwordsArray = []
     let counter = 2;
     while(counter > 0) {
@@ -34,20 +38,35 @@ function copyPassword(){
     let cb = navigator.clipboard;
     if(clickedOutputOne){
         cb.writeText(outputOne.textContent).then(() => console.log('Output one', outputOne.textContent));
+        if(copiedOne.classList.contains("hidden")){
+            copiedOne.classList.toggle("hidden");
+        }
     } else if(clickedOutputTwo) {
         cb.writeText(outputTwo.textContent).then(() => console.log('Output two', outputTwo.textContent));
+        if(copiedTwo.classList.contains("hidden")){
+            copiedTwo.classList.toggle("hidden");
+        }
     }
     clickedOutputTwo = false;
     clickedOutputOne = false;
 }
 
+function checkHiddenStatus(){
+if(!copiedOne.classList.contains("hidden")) {
+    copiedOne.classList.toggle("hidden");
+}
+if(!copiedTwo.classList.contains("hidden")) {
+    copiedTwo.classList.toggle("hidden");
+}
+}
+
 
 generateButton.addEventListener("click", createPassword);
 outputOne.addEventListener("click", function() {
-    clickedOutputOne = true
+    clickedOutputOne = true;
 });
 outputTwo.addEventListener("click", function() {
-    clickedOutputTwo = true
+    clickedOutputTwo = true;
 });
 outputOne.addEventListener("click", copyPassword);
 outputTwo.addEventListener("click", copyPassword);

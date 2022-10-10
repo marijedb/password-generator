@@ -91,7 +91,7 @@ hr {
     color: #5DEF92;
     font-family: 'Inter', sans-serif;
     height: 40px;
-    width: 211px;
+    width: 200px;
 }
 
 
@@ -126,6 +126,7 @@ hr {
     }
 
     .output-button { 
-        width: 150px;
+        font-size: 0.7rem;
+        width: 120px;
     }
   }
